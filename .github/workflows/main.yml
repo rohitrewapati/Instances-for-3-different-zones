@@ -12,8 +12,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: actions/aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.ASIASFL3AHUUVP3YEAEZ }}
+          aws-secret-access-key: ${{ secrets.wrweORJ4ZY/ghrb+9ioe7zrPgieF5ZAzeGGmuv/c }}
           region: us-east-1 # Replace with your desired region
 
       - name: Terraform Init
