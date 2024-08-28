@@ -14,7 +14,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.ASIASFL3AHUUVP3YEAEZ }}
           aws-secret-access-key: ${{ secrets.wrweORJ4ZY/ghrb+9ioe7zrPgieF5ZAzeGGmuv/c }}
-          region: us-east-1 # Replace with your desired region
+          region: us-east-1b
 
       - name: Terraform Init
         run: terraform init
