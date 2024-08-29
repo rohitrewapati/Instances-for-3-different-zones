@@ -1,26 +1,33 @@
-name: Deploy EC2 Instances
+name: Deploy AWS Instances
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Configure AWS Credentials
         uses: actions/aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.ASIASFL3AHUUVP3YEAEZ }}
-          aws-secret-access-key: ${{ secrets.wrweORJ4ZY/ghrb+9ioe7zrPgieF5ZAzeGGmuv/c }}
-          region: us-east-1b
+          aws-access-key-id: ${{ secrets.ASIASFL3AHUU3K3YFJ7V }}
+          aws-secret-access-key: ${{ secrets.9BGuRTf7okSEtpSRuVVHSN7+Q3YzQgIsG2/d4g2S }}
+          aws-region: us-east-1 
 
-      - name: Terraform Init
+      - name: Install Terraform
+        run: |
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/terraform-archive.gpg
+          echo "deb [arch=amd64] https://apt.releases.hashicorp.com/debian bullseye main" | sudo tee /etc/apt/sources.list.d/terraform.list
+          sudo apt-get update
+          sudo apt-get install terraform
+
+      - name: Initialize Terraform
         run: terraform init
 
       - name: Terraform Plan
         run: terraform plan
-
-      - name: Terraform Apply
-        run: terraform apply
+        
+      - name: Apply Terraform configuration
+        run: terraform apply -auto-approve
