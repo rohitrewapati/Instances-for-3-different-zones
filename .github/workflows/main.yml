@@ -12,9 +12,9 @@ jobs:
       - name: Configure AWS Credentials
         uses: actions/aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.ASIASFL3AHUU3K3YFJ7V }}
-          aws-secret-access-key: ${{ secrets.9BGuRTf7okSEtpSRuVVHSN7+Q3YzQgIsG2/d4g2S }}
-          aws-region: us-east-1 
+          aws-access-key-id: ${{ secrets.ASIASFL3AHUUQYM64IKM }}
+          aws-secret-access-key: ${{ secrets.ysLd0HkLgiIouXb4E27S9zjBIfQQ4f40saZ0Fxk1 }}
+          aws-region: us-east-1
 
       - name: Install Terraform
         run: |
@@ -26,8 +26,5 @@ jobs:
       - name: Initialize Terraform
         run: terraform init
 
-      - name: Terraform Plan
-        run: terraform plan
-        
       - name: Apply Terraform configuration
         run: terraform apply -auto-approve
